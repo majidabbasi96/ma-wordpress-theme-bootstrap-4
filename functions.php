@@ -49,7 +49,15 @@ class MAWTB4_theme
 	
 	public function setup()
     {
-        
+        load_theme_textdomain('mawtb4', get_template_directory().'/languages');
+		
+		add_theme_support('post-thumbnails');
+		
+		add_theme_support('title-tag');
+		
+		add_theme_support('html5', array(
+            'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
+        ));
     }
     
     public function sidebars()
@@ -58,7 +66,11 @@ class MAWTB4_theme
     
     public function assets()
     {
-                
+		wp_enqueue_style('mawtb4-bootstrap', get_template_directory_uri().'/assets/plugins/bootstrap-4/css/bootstrap.min.css');
+		wp_enqueue_style('mawtb4-template', get_template_directory_uri().'/assets/css/template.css');
+		
+		wp_enqueue_script('mawtb4-bootstrap', get_template_directory_uri().'/assets/plugins/properjs/popper.min.js', array('jquery'), '20151010', true);
+		wp_enqueue_script('mawtb4-bootstrap', get_template_directory_uri().'/assets/plugins/bootstrap-4/js/bootstrap.min.js', array(), '20151010', true);
     }
 }
 $MAWTB4_theme = MAWTB4_theme::instance();
