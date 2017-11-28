@@ -1,10 +1,16 @@
 <?php 
-class MAWTB4_theme
+include 'funcitons.config.php';
+
+class MAWTB4_theme extends WBHTL_theme_config
 {
+	public $nav_menus = array();
+	
 	private static $instance = NULL;
 	
 	protected function __construct()
     {
+		parent::__CONSTRUCT();
+		
         if(!defined('MAWTB4_THEME_VERSION')) define('MAWTB4_THEME_VERSION', '0.0.1');
     }
     
@@ -58,6 +64,11 @@ class MAWTB4_theme
 		add_theme_support('html5', array(
             'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
         ));
+		
+		if($this->nav_menus)
+		{
+			register_nav_menus($this->nav_menus);
+		}
     }
     
     public function sidebars()
