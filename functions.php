@@ -34,6 +34,17 @@ class MAWTB4_theme extends WBHTL_theme_config
         
         return add_action($hook, $function, $priority, $accepted_args);
     }
+	public function showMenu($themeLocation, $menuID = '')
+	{
+		if($themeLocation == '') return false;
+		
+		$params = array(
+			'theme_location' => $themeLocation,
+			'menu_id' => $menuID
+		);
+		
+		wp_nav_menu( $params );
+	}
 	public function AddFilter($tag, $function, $priority = 10, $accepted_args = 1)
     {
         
