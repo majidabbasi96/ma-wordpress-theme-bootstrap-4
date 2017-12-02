@@ -4,6 +4,7 @@ include 'funcitons.config.php';
 class MAWTB4_theme extends WBHTL_theme_config
 {
 	public $nav_menus = array();
+	public $use_parallax = false;
 	
 	private static $instance = NULL;
 	
@@ -93,6 +94,10 @@ class MAWTB4_theme extends WBHTL_theme_config
 		
 		wp_enqueue_script('mawtb4-js-popper', get_template_directory_uri().'/assets/plugins/properjs/popper.min.js', array('jquery'), '20151010', true);
 		wp_enqueue_script('mawtb4-js-bootstrap', get_template_directory_uri().'/assets/plugins/bootstrap-4/js/bootstrap.min.js', array(), '20151010', true);
+		if($this->use_parallax)
+		{
+			wp_enqueue_script('mawtb4-js-parallax', get_template_directory_uri().'/assets/plugins/parallax/parallax.min.js', array(), '20151010', true);
+		}
 		wp_enqueue_script('mawtb4-js-template', get_template_directory_uri().'/assets/js/template.js', array(), '20151010', true);
     }
 }
