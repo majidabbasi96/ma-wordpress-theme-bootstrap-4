@@ -7,5 +7,5 @@
 
     	<?php wp_head(); ?>
   	</head>
-  	<body>
+	<body <?php if(is_rtl()){ echo 'class="rtl"';} ?> >
 		<div class="wrapper">
