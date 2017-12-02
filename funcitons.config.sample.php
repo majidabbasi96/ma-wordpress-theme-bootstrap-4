@@ -15,5 +15,7 @@ class WBHTL_theme_config{
             'name'=>__('Blog Sidebar', 'mawtb4'),
             'id'=>'mawtb4-blog-sidebar'
         );
+		
+		$this->disable_admin_bar = true;
 	}
 }

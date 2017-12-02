@@ -6,6 +6,7 @@ class MAWTB4_theme extends WBHTL_theme_config
 	public $nav_menus = array();
 	public $use_parallax = false;
 	public $sidebars_data = array();
+	public $disable_admin_bar = false;
 	
 	private static $instance = NULL;
 	
@@ -60,7 +61,14 @@ class MAWTB4_theme extends WBHTL_theme_config
         $this->addAction('after_setup_theme', array($this, 'setup'));
         $this->addAction('widgets_init', array($this, 'sidebars'));
         $this->addAction('wp_enqueue_scripts', array($this, 'assets'));
+		if($this->disable_admin_bar)
+		{
+			$this->AddFilter('show_admin_bar', array($this, 'disableAdminBar'));
+		}
     }
+	public function disableAdminBar(){
+		return false;
+	}
 	public function shortcode($shortcode, $function)
     {
         return add_shortcode($shortcode, $function);
