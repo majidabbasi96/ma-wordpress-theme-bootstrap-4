@@ -8,5 +8,7 @@ class WBHTL_theme_config{
 								'top-menu' => __('Top Menu', 'mawtb4')
 								,'footer-menu' => __('Footer Menu', 'mawtb4')
 							);
+		
+		$this->use_parallax = true;
 	}
 }
