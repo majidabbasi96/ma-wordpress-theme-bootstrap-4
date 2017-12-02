@@ -5,6 +5,7 @@ class MAWTB4_theme extends WBHTL_theme_config
 {
 	public $nav_menus = array();
 	public $use_parallax = false;
+	public $sidebars_data = array();
 	
 	private static $instance = NULL;
 	
@@ -85,6 +86,13 @@ class MAWTB4_theme extends WBHTL_theme_config
     
     public function sidebars()
     {
+		if($this->sidebars_data)
+		{
+			foreach($this->sidebars_data as $sidebar)
+			{
+				register_sidebar($sidebar);
+			}
+		}
     }
     
     public function assets()
