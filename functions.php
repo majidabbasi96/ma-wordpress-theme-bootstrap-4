@@ -111,8 +111,8 @@ class MAWTB4_theme extends WBHTL_theme_config
 		wp_enqueue_style('mawtb4-css-bootstrap', get_template_directory_uri().'/assets/plugins/bootstrap-4/css/bootstrap.min.css');
 		if($this->use_slick)
 		{
-			wp_enqueue_style('mawtb4-css-slick', get_template_directory_uri().'/assets/plugins/slick/slick.css', array(), '20151010', true);
-			wp_enqueue_style('mawtb4-css-slick-theme', get_template_directory_uri().'/assets/plugins/slick/slick-theme.css', array(), '20151010', true);
+			wp_enqueue_style('mawtb4-css-slick', get_template_directory_uri().'/assets/plugins/slick/slick.css');
+			wp_enqueue_style('mawtb4-css-slick-theme', get_template_directory_uri().'/assets/plugins/slick/slick-theme.css');
 		}
 		wp_enqueue_style('mawtb4-css-template', get_template_directory_uri().'/assets/css/template.css');
 		
