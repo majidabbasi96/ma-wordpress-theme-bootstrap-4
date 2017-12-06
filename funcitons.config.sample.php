@@ -10,6 +10,7 @@ class WBHTL_theme_config{
 							);
 		
 		$this->use_parallax = true;
+		$this->use_slick = true;
 		
 		$this->sidebars_data[] = array(
             'name'=>__('Blog Sidebar', 'mawtb4'),
