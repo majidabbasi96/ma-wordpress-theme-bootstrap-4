@@ -4,7 +4,10 @@ include 'funcitons.config.php';
 class MAWTB4_theme extends WBHTL_theme_config
 {
 	public $nav_menus = array();
+	
 	public $use_parallax = false;
+	public $use_slick = false;
+	
 	public $sidebars_data = array();
 	public $disable_admin_bar = false;
 	
@@ -106,6 +109,11 @@ class MAWTB4_theme extends WBHTL_theme_config
     public function assets()
     {
 		wp_enqueue_style('mawtb4-css-bootstrap', get_template_directory_uri().'/assets/plugins/bootstrap-4/css/bootstrap.min.css');
+		if($this->use_slick)
+		{
+			wp_enqueue_style('mawtb4-css-slick', get_template_directory_uri().'/assets/plugins/slick/slick.css', array(), '20151010', true);
+			wp_enqueue_style('mawtb4-css-slick-theme', get_template_directory_uri().'/assets/plugins/slick/slick-theme.css', array(), '20151010', true);
+		}
 		wp_enqueue_style('mawtb4-css-template', get_template_directory_uri().'/assets/css/template.css');
 		
 		wp_enqueue_script('mawtb4-js-jquery-slim', get_template_directory_uri().'/assets/plugins/jquery.slim/jquery-3.2.1.slim.min.js', array(), '20151010', true);
@@ -114,6 +122,10 @@ class MAWTB4_theme extends WBHTL_theme_config
 		if($this->use_parallax)
 		{
 			wp_enqueue_script('mawtb4-js-parallax', get_template_directory_uri().'/assets/plugins/parallax/parallax.min.js', array(), '20151010', true);
+		}
+		if($this->use_slick)
+		{
+			wp_enqueue_script('mawtb4-js-slick', get_template_directory_uri().'/assets/plugins/slick/slick.min.js', array(), '20151010', true);
 		}
 		wp_enqueue_script('mawtb4-js-template', get_template_directory_uri().'/assets/js/template.js', array(), '20151010', true);
     }
